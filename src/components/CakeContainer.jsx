@@ -25,5 +25,6 @@ function CakeContainer({ cakes, buyCake }) {
         </div>
     )
 }
-
-export default connect(mapStateProps, mapDispatchProps)(CakeContainer);
+let connector = connect(mapStateProps, mapDispatchProps);//return a new prop state ready function to connect with component
+let connectedComponent = connector(CakeContainer)
+export default connectedComponent;
