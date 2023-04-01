@@ -1,11 +1,5 @@
-import { combineReducers, createStore } from "redux";
-import cakeReducer from "./cakes/reducers";
-import iceCreamReducer from "./iceCreams/reducers";
-
-let rootReducer = combineReducers({
-    cake : cakeReducer,
-    iceCream : iceCreamReducer
-})
+import {  createStore } from "redux";
+import rootReducer from './rootReducer';
 
 let store = createStore(rootReducer);
 
