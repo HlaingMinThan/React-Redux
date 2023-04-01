@@ -1,27 +1,27 @@
 import React from 'react'
-import { buyCake } from '../redux/cakes/actions'
+import { buyIceCream } from '../redux/iceCreams/actions'
 import { connect } from 'react-redux'
 
 //pass down selected state to component
 let mapStateProps = (state) => {
     return {
-        cakes: state.cake.cakes
+        icecreams: state.iceCream.iceCreams
     }
 }
 
 //pass down selected action function to component
 let mapDispatchProps = (dispatch) => {
     return {
-        buyCake: () => dispatch(buyCake())
+        buyIceCream: () => dispatch(buyIceCream())
     }
 }
 
-function CakeContainer({ cakes, buyCake }) {
+function CakeContainer({ icecreams, buyIceCream }) {
 
     return (
         <div>
-            <h1>Total Cakes - {cakes}</h1>
-            <button onClick={buyCake}>buy cake</button>
+            <h1>Total Icecreams - {icecreams}</h1>
+            <button onClick={buyIceCream}>buy cake</button>
         </div>
     )
 }

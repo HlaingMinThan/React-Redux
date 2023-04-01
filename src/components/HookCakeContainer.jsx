@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 export default function CakeContainer() {
 
-    let cakes = useSelector(state => state.cakes);
+    let cakes = useSelector(state => state.cake.cakes);
     let dispatch = useDispatch();
 
     return (
