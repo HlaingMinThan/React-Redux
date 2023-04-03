@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { buyIceCream } from '../redux/iceCreams/actions'
 import { connect } from 'react-redux'
 
@@ -12,16 +12,18 @@ let mapStateProps = (state) => {
 //pass down selected action function to component
 let mapDispatchProps = (dispatch) => {
     return {
-        buyIceCream: () => dispatch(buyIceCream())
+        buyIceCream: (number) => dispatch(buyIceCream(number))
     }
 }
 
 function CakeContainer({ icecreams, buyIceCream }) {
 
+    let [iceCreamCount, setIceCreamCount] = useState(0);
     return (
         <div>
             <h1>Total Icecreams - {icecreams}</h1>
-            <button onClick={buyIceCream}>buy cake</button>
+            <button onClick={() => buyIceCream(iceCreamCount)}>buy cake</button>
+            <input type="number" value={iceCreamCount} onChange={e => setIceCreamCount(e.target.value)} />
         </div>
     )
 }

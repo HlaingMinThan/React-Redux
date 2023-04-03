@@ -7,7 +7,7 @@ const initialState= {
 let reducer = (state =  initialState,action) => {
     switch(action.type) {
         case BUY_ICE_CREAM :
-            return {...state,iceCreams : state.iceCreams - 1}; 
+            return {...state,iceCreams : state.iceCreams - (action.payload ? action.payload : 1)}; 
         default : 
             return state;
     }
