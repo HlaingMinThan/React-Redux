@@ -1,6 +1,6 @@
 import React from 'react'
-import { buyCake } from '../redux/cakes/actions'
 import { connect } from 'react-redux'
+import ItemContainer from '../components/ItemContainer';
 
 //pass down selected state to component
 let mapStateProps = (state) => {
@@ -9,22 +9,14 @@ let mapStateProps = (state) => {
     }
 }
 
-//pass down selected action function to component
-let mapDispatchProps = (dispatch) => {
-    return {
-        buyCake: () => dispatch(buyCake())
-    }
-}
-
 function CakeContainer({ cakes, buyCake }) {
 
     return (
         <div>
-            <h1>Total Cakes - {cakes}</h1>
-            <button onClick={buyCake}>buy cake</button>
+            <ItemContainer type="cakes" />
         </div>
     )
 }
-let connector = connect(mapStateProps, mapDispatchProps);//return a new prop state ready function to connect with component
+let connector = connect(mapStateProps);//return a new prop state ready function to connect with component
 let connectedComponent = connector(CakeContainer)
 export default connectedComponent;

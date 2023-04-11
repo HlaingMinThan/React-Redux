@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { buyIceCream } from '../redux/iceCreams/actions'
 import { connect } from 'react-redux'
+import ItemContainer from '../components/ItemContainer';
 
 //pass down selected state to component
 let mapStateProps = (state) => {
@@ -21,8 +22,8 @@ function CakeContainer({ icecreams, buyIceCream }) {
     let [iceCreamCount, setIceCreamCount] = useState(0);
     return (
         <div>
-            <h1>Total Icecreams - {icecreams}</h1>
-            <button onClick={() => buyIceCream(iceCreamCount)}>buy cake</button>
+            <ItemContainer type="ice cream" />
+            <button onClick={() => buyIceCream(iceCreamCount)}>buy icecreams</button>
             <input type="number" value={iceCreamCount} onChange={e => setIceCreamCount(e.target.value)} />
         </div>
     )
